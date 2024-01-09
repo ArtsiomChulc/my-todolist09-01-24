@@ -1,0 +1,56 @@
+.burger {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+
+  &.burgerCross {
+    transition: transform .2s ease-in-out;
+    .burgerLines {
+      background-color: transparent;
+
+      &:before {
+        top: 0;
+        transform: rotate(45deg);
+        background-color: var(--color-text-white-tr75);
+      }
+      &:after {
+        top: 0;
+        transform: rotate(-45deg);
+        background-color: var(--color-text-white-tr75);
+      }
+    }
+  }
+
+  .burgerLines {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 0.3rem;
+    background-color: var(--color-text-white);
+    transition: transform .2s ease-in-out;
+
+    &:before {
+      position: absolute;
+      top: 1rem;
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: inherit;
+      background-color: var(--color-text-white);
+      transition: transform .2s ease-in-out;
+    }
+
+    &:after {
+      position: absolute;
+      top: -1rem;
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: inherit;
+      background-color: var(--color-text-white);
+      transition: transform .2s ease-in-out;
+    }
+  }
+}
