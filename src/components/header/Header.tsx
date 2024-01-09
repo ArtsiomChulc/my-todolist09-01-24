@@ -12,7 +12,7 @@ export const Header: FC<HeaderType> = ({logInText}) => {
     return (
         <header className={s.headerContainer}>
             <div className={s.headerWrapper}>
-                <Burger/>
+                <Burger />
                 <p className={s.logInfo}>{logInText}</p>
             </div>
         </header>
