@@ -6,7 +6,7 @@ import {setStatus} from "../reducers/appReducer/appReducer";
 import {useAppDispatch} from "../store/store";
 
 import s from './app.module.scss';
-import {TodoLists} from "./todoLists/TodoLists";
+import {TodoLists} from "../todos/TodoLists";
 
 export const App = () => {
     const [valueTodos, setValueTodos] = useState('')
