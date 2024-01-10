@@ -1,22 +1,23 @@
 import React, {FC, ChangeEvent} from 'react';
 
-import s from './input.module.scss';
 
 type InputType = {
-    setValue: (value: string) => void
-    value: string
+    onChange: (value: string) => void
+    value?: string
     className: string
+    type: string
+    checked?: boolean
 }
 
-export const Input: FC<InputType> = ({setValue, value, className}) => {
+export const Input: FC<InputType> = ({onChange, value, className, type, checked}) => {
 
     const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value)
+        onChange(e.target.value)
     }
 
     return (
         <>
-            <input className={className} type="text" onChange={onChangeValue} value={value}/>
+            <input className={className} type={type} onChange={onChangeValue} value={value} checked={checked}/>
         </>
     );
 };
