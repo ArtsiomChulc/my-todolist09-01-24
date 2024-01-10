@@ -9,4 +9,16 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  //for input
+  .wrapperInputBtn {
+    align-self: flex-start;
+    margin: 2rem;
+    .input {
+      width: 38rem;
+      height: 4.5rem;
+      font-size: var(--font-size-l);
+      padding-left: 1rem;
+    }
+  }
 }
