@@ -1,0 +1,48 @@
+.todoListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  height: auto;
+  padding: 1rem;
+  border: 1px solid var(--color-violet-2);
+  box-shadow: 0 0 3px 3px var(--color-violet-2);
+
+  @media (max-width: 360px) {
+    width: 25rem;
+  }
+
+  .nameTodo {
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: var(--font-size-xxl);
+    margin-bottom: 2rem;
+    position: relative;
+    text-transform: capitalize;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .2rem;
+      background-color: var(--color-violet-7);
+    }
+  }
+
+  .wrapGroupBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .groupButton {
+      font-size: var(--font-size-m);
+      background-color: var(--color-violet-7);
+      color: var(--color-text-white);
+      padding: 0.5rem 1rem;
+      letter-spacing: 1px;
+    }
+  }
+}
