@@ -28,4 +28,4 @@ export const setError = (error: string | null) => ({
 export type setStatusType = ReturnType<typeof setStatus>
 export type setErrorType = ReturnType<typeof setError>
 
-export type ActionsTypes = setStatusType | setErrorType
+type ActionsTypes = setStatusType | setErrorType
