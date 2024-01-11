@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {AddButton} from "../components/addButton/AddButton";
 import {Header} from "../components/header/Header";
 import {Input} from "../components/input/Input";
+import {setStatus} from "../reducers/appReducer/appReducer";
 import {addTask} from "../reducers/tasksReducer";
 import {useAppDispatch} from "../store/store";
 import {TodoLists} from "../todos/TodoLists";
+
 
 import s from './app.module.scss';
 
 export const App = () => {
     const dispatch = useAppDispatch()
+
     let [taskTitle, setTaskTitle] = useState('')
 
     const setTaskTitleCb = (value: string) => {
@@ -17,7 +20,11 @@ export const App = () => {
     }
 
     const addTaskTitle = () => {
-        dispatch(addTask(taskTitle))
+        setTimeout(() => {
+            dispatch(addTask(taskTitle))
+            dispatch(setStatus('succeeded'))
+        }, 2000)
+        dispatch(setStatus('loading'))
         setTaskTitle('')
     }
 
@@ -27,7 +34,7 @@ export const App = () => {
 
             <div className={s.addTodosText}>
                 <Input onChange={setTaskTitleCb} value={taskTitle} className={s.input}/>
-                <AddButton nameBtn={'+'} className={s.button} onClick={addTaskTitle} />
+                <AddButton nameBtn={'+'} className={s.button} onClick={addTaskTitle}/>
             </div>
             <TodoLists/>
         </div>

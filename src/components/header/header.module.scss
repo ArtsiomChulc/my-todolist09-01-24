@@ -2,6 +2,13 @@
   width: 100%;
   background-color: var(--color-violet-7);
   color: var(--color-text-white);
+  position: relative;
+
+  .progressBar {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
 
   .headerWrapper {
     display: flex;
