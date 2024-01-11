@@ -1,6 +1,7 @@
-import React, {useState, FC} from 'react';
+import React, {FC, ChangeEvent} from 'react';
 import {AddButton} from "../../components/addButton/AddButton";
-import {Input} from "../../components/input/Input";
+import {changeTaskStatus, removeTask} from "../../reducers/tasksReducer";
+import {useAppDispatch} from "../../store/store";
 import {TaskType} from "../../types/taskType";
 
 import s from './todoList.module.scss';
@@ -12,16 +13,32 @@ type TodoListType = {
 
 export const TodoList: FC<TodoListType> = ({titleTodo, tasks}) => {
 
+    const dispatch = useAppDispatch()
+
+    const onChangeStatus = (id: string, isDone: boolean) => {
+        dispatch(changeTaskStatus(id, isDone))
+    }
+
+    const removeTaskCb = (id: string) => {
+        dispatch(removeTask(id))
+    }
+
     return (
         <section className={s.todoListContainer}>
             <p className={s.nameTodo}>{titleTodo}</p>
-            <ul>
+            <ul className={s.tasksWrap}>
                 {tasks.map(({taskTitle, id, isDone}) => {
+                    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                        onChangeStatus(id, e.target.checked)
+                    }
+                    const onClickHandler = () => {
+                        removeTaskCb(id)
+                    }
                     return (
-                        <li key={id}>
-                            <Input onChange={() => {}} className={s.taskInput} type={'checkbox'} checked={isDone}/>
-                            <p>{taskTitle}</p>
-                            <AddButton nameBtn={'✖️'} className={s.taskButton} onClick={() => {}}/>
+                        <li key={id} className={s.taskInfo}>
+                            <input type="checkbox" className={s.taskInput} onChange={onChangeHandler} checked={isDone}/>
+                            <p className={s.taskTitle}>{taskTitle}</p>
+                            <AddButton nameBtn={'x'} className={s.taskButton} onClick={onClickHandler}/>
                         </li>
                     )
                 })}

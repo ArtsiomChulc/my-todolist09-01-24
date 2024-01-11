@@ -1,14 +1,17 @@
 import React from 'react';
-import {task1, task2} from "../store/mockData";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../store/store";
+import {TaskType} from "../types/taskType";
 import {TodoList} from "./todoList/TodoList";
 
 import s from './todoLists.module.scss';
 
 export const TodoLists = () => {
+    const task = useSelector<AppRootStateType, TaskType[]>(state => state.task)
+
     return (
         <div className={s.todosWrap}>
-            <TodoList tasks={task1} titleTodo={'robobbooo'}/>
-            <TodoList tasks={task2} titleTodo={'robobbooorobobbooo'}/>
+            <TodoList tasks={task} titleTodo={'robobbooo'}/>
         </div>
     );
 };

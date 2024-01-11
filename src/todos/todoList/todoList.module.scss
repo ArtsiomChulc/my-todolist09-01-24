@@ -32,6 +32,41 @@
     }
   }
 
+  .tasksWrap {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+
+    .taskInfo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .taskInput {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .taskTitle {
+        flex: 1 1 auto;
+        font-size: var(--font-size-l);
+      }
+
+      .taskButton {
+        background-color: var(--color-violet-4);
+        color: var(--color-text-white);
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: var(--font-size-l);
+      }
+    }
+  }
+
   .wrapGroupBtn {
     display: flex;
     align-items: center;

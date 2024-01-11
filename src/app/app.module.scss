@@ -23,6 +23,7 @@
 
     @media (max-width: 360px) {
       flex-wrap: wrap;
+      justify-self: center;
     }
     .input {
       width: 38rem;
@@ -32,6 +33,10 @@
       
       @media (max-width: 485px) {
         width: 27.5rem;
+        height: 4rem;
+      }
+      @media (max-width: 360px) {
+        width: 100%;
       }
     }
     .button {
