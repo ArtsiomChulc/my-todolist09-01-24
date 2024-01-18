@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {AddButton} from "../components/addButton/AddButton";
 import {Header} from "../components/header/Header";
 import {Input} from "../components/input/Input";
 import {setStatus} from "../reducers/appReducer/appReducer";
-import {addTask} from "../reducers/tasksReducer";
+import {addTask, setTasks} from "../reducers/tasksReducer";
+import {task1} from "../store/mockData";
 import {useAppDispatch} from "../store/store";
 import {TodoLists} from "../todos/TodoLists";
 
@@ -28,13 +29,19 @@ export const App = () => {
         setTaskTitle('')
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            dispatch(setTasks(task1))
+        }, 1000)
+    }, []);
+
     return (
         <div className={s.appContainer}>
             <Header logInText={'LogIn'}/>
 
             <div className={s.addTodosText}>
                 <Input onChange={setTaskTitleCb} value={taskTitle} className={s.input}/>
-                <AddButton nameBtn={'+'} className={s.button} onClick={addTaskTitle}/>
+                <AddButton titleBtn={'+'} className={s.button} onClickCB={addTaskTitle}/>
             </div>
             <TodoLists/>
         </div>

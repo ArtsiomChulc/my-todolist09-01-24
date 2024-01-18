@@ -1,5 +1,5 @@
+import {v4} from 'uuid';
 import {TaskType} from "../types/taskType";
-import { v4 } from 'uuid';
 
 export const task1: TaskType[] = [
     {
@@ -18,6 +18,9 @@ export const task1: TaskType[] = [
         isDone: false
     }
 ]
+
+export type FilteredStateType = 'All' | 'Active' | 'Completed';
+
 
 // export const task2: TaskType[] = [
 //     {

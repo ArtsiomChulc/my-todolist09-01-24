@@ -3,3 +3,11 @@ export type TaskType = {
     taskTitle: string
     isDone: boolean
 }
+
+export type TasksType = {
+    tasks: TaskType[],
+    isLoadingTasks: boolean
+}
+
+export type UnionTaskType = TasksType
+
