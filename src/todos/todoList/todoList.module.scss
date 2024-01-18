@@ -78,6 +78,10 @@
       color: var(--color-text-white);
       padding: 0.5rem 1rem;
       letter-spacing: 1px;
+
+      &.active {
+        background-color: var(--color-violet-3);
+      }
     }
   }
 }
